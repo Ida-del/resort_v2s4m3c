@@ -1,4 +1,4 @@
-package dev.mvc.resort;
+package dev.mvc.resort_git;
 
 import java.util.Locale;
 
