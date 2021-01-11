@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>dev.mvc</groupId>
-	<artifactId>resort_git</artifactId>
-	<name>resort_v2s4m3c_git</name>
+	<artifactId>resort</artifactId>
+	<name>resort_v2s4m3c</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
