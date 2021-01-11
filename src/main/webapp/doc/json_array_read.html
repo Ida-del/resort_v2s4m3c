@@ -1,0 +1,56 @@
+<!DOCTYPE html> 
+<html lang="ko"> 
+<head> 
+<meta charset="UTF-8"> 
+<title>ebooks</title> 
+
+<script type="text/JavaScript"
+          src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#read_product').click(function(){
+  var params =''
+  $.ajax({
+    url: '../json_array.do',
+    type: 'get',   // get, post
+    cache: false, // 응답 결과 임시 저장 취소
+    async: true,  // true: 비동기 통신
+    dataType: 'json', // 응답 형식: json, html, xml...
+    data: params,      // 보내는 값 (여기서는 없음.)
+    success:  function(rdata){
+      var str = '';
+      for (var i=0; i< rdata.length; i++) {
+          var info = rdata[i];  // 배열에서 하나의 객체 추출
+          str +=  'Title: ' + info.title+"<br>";
+          str += 'Price:' + info.price+"<br>";
+          str += 'Discount:' + info.dc;
+       }  // End for
+     $('#panel2').css('text-align', 'center');
+     $('#panel2').html(str);  // 보통 DIV, SPAN등에 출력       
+    },  // End success: functioin(rdata)
+      error: function(request, status, error) { // callback
+        var msg = 'ERROR<br><br>';
+        msg += '<strong>request.status</strong><br>'+request.status + '<hr>';
+        msg += '<strong>error</strong><br>'+error + '<hr>';     
+        console.log(msg);
+      }  // End :error function
+  });  // End ajax
+  $('#panel2').css('text-align', 'center');  // 출력 텍스트 가운데 배치
+  $('#panel2').html("...  loading  ...");
+  $('#panel2').show(); // 숨겨진 태그의 출력
+  });  // End read_product function
+  
+});  // End ready function
+</script>       
+</head> 
+<body>
+
+<DIV style='padding: 10px 0px 10px 0px; background-color: #F9F9F9; width: 100%; text-align: center;'>  
+<button id='read_product'>See more info</button>
+</DIV>
+<DIV id='panel2' style='padding: 10px 0px 10px 0px; background-color: #F9F9F9; width: 100%; text-align: center;'>
+</DIV>
+</body>
+ 
+</html> 
