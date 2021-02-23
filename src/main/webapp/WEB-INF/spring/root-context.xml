@@ -4,13 +4,23 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     
   <!-- Oracle Connection Pool, 안정적인 데이터베이스 연결 지원, MyBATIS 사용 -->
-  <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+<!--   <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
     <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
     <property name="url" value="jdbc:oracle:thin:@localhost:1521:XE" />
     <property name="username" value="ai7" />
     <property name="password" value="1234" />
+  </bean> -->
+
+  <!-- 디버깅시에만 사용을 권장 -->
+  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
+    <!-- MySQL -->
+    <!-- <property name="url" value="jdbc:log4jdbc:mysql://127.0.0.1:3306/javadb"></property> -->
+    <property name="url" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE" />
+    <property name="username" value="ai7" />
+    <property name="password" value="1234" />
   </bean>
- 
+   
   <!-- MySQL: & → ＆amp; 엔티티로 변경 -->
 <!--
   <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">

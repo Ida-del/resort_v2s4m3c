@@ -232,6 +232,22 @@ WHERE cateno=1;
 UPDATE cate
 SET cnt = 0;
 
+-- Join + Paging
+SELECT r.categrpno as r_categrpno, r.name as r_name,
+           c.cateno, c.categrpno, c.name, c.seqno, c.visible, c.rdate, c.cnt
+FROM (
+
+);
+           
+SELECT r.categrpno as r_categrpno, r.name as r_name,
+           c.cateno, c.categrpno, c.name, c.seqno, c.visible, c.rdate, c.cnt           
+FROM categrp r, cate c
+WHERE r.categrpno = c.categrpno
+ORDER BY r.categrpno ASC, c.seqno ASC
+
+
+
+
 COMMIT;
 
 

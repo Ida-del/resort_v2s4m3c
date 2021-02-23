@@ -150,7 +150,7 @@ public class ReplyCont {
                      }
               ]
 }
-   * http://localhost:9090/resort==/reply/list_by_contentsno_join.do?contentsno=15
+   * http://localhost:9090/resort/reply/list_by_contentsno_join.do?contentsno=15
    * @param contentsno
    * @return
    */
